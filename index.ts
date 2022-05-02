@@ -1,7 +1,6 @@
 const inquirer = require('inquirer');
 import {create,query,deleteData} from "./menu";
 import intervalDuty from "./schedule"
-import record from "./record";
 async function init(){
     let menuMap=new Map([
         ["新增任务","create"],
@@ -40,8 +39,8 @@ async function init(){
             deleteData();
         break;
         case "startUp":
-            // intervalDuty();
-            record();
+            intervalDuty();
+            // record();
         break;
     }
     

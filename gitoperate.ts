@@ -1,9 +1,13 @@
 const Git=require("nodegit");
-const endDate=new Date().getTime();
-const beginDate=endDate-(1000*60*60*8);
+const moment = require('moment');
+moment.locale("zh-cn");
+
 import recordcommit from "./recodeCommit";
 import {matchInfo} from "./utils"
 async function setGitLog(path:string,branch:string,outPath:string,fileName:string){
+    // const localTime=moment().valueOf();
+    const endDate=new Date().getTime();
+    const beginDate=endDate-(1000*60*60*8);
     let messageList:string[]=[`${new Date().toLocaleDateString()}\n`]
     let repo=await Git.Repository.open(`${path}/.git`)
     const walker = repo.createRevWalk();
